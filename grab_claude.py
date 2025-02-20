@@ -236,9 +236,9 @@ def send_status_email(results_df, excel_file_path):
         return False
     
     # Email configuration - will be moved to GitHub Secrets later
-    sender_email = os.environ.get("EMAIL_SENDER", "wkk.admhr1@gmail.com")
-    sender_password = os.environ.get("EMAIL_PASSWORD", "krxokfdcxpfbayca")
-    receiver_emails = ["jaden5165@hotmail.com", "jaden5165@gmail.com"]
+    sender_email = os.environ.get("EMAIL_SENDER", "youremail@gmail.com")
+    sender_password = os.environ.get("EMAIL_PASSWORD", "yourpass")
+    receiver_emails = ["your1@hotmail.com", "your2@gmail.com"]
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
     
