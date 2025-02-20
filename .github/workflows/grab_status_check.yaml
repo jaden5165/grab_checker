@@ -45,16 +45,16 @@ jobs:
       - name: Update Chromedriver path in script
         run: |
           # Check if the script exists and update the Chromedriver path
-          if [ -f "Grabstatuschecking.py" ]; then
-            sed -i 's|"C:/Users/sheng/Desktop/TEST/chromedriver.exe"|"/usr/local/bin/chromedriver"|g' Grabstatuschecking.py
+          if [ -f "grab_claude.py" ]; then
+            sed -i 's|"C:/Users/sheng/Desktop/TEST/chromedriver.exe"|"/usr/local/bin/chromedriver"|g' grab_claude.py
           else
-            echo "Error: Grabstatuschecking.py not found"
+            echo "Error: grab_claude.py not found"
             exit 1
           fi
 
       - name: Run Grab status check
         run: |
-          python Grabstatuschecking.py
+          python grab_claude.py
 
       - name: Get current date
         id: date
