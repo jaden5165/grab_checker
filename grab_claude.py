@@ -81,7 +81,7 @@ def check_outlet_status(outlet_name, username, password, return_list):
             
             # Handle possible popups
             try:
-                continue_button = WebDriverWait(driver, 3).until(EC.element_to_be_clickable(
+                continue_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
                     (By.XPATH, '/html/body/div[2]/div/div[2]/div/div[2]/div/div/div/div[2]/button[2]')
                 ))
                 continue_button.click()
@@ -90,7 +90,7 @@ def check_outlet_status(outlet_name, username, password, return_list):
                 logger.info(f"No 'Continue' button found for {outlet_name}, skipping")
             
             try:
-                close_button = WebDriverWait(driver, 3).until(EC.element_to_be_clickable(
+                close_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
                     (By.XPATH, '/html/body/div[2]/div/div[2]/div/div[2]/div/div/div/div[3]/button[1]')
                 ))
                 close_button.click()
@@ -114,7 +114,7 @@ def check_outlet_status(outlet_name, username, password, return_list):
             if outlet_path:
                 try:
                     # Scroll to make outlet visible
-                    element = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, outlet_path)))
+                    element = WebDriverWait(driver, 8).until(EC.presence_of_element_located((By.XPATH, outlet_path)))
                     driver.execute_script("arguments[0].scrollIntoView();", element)
                     
                     # Click the outlet
