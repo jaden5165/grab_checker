@@ -238,7 +238,7 @@ def send_status_email(results_df, excel_file_path):
     # Email configuration - will be moved to GitHub Secrets later
     sender_email = os.environ.get("EMAIL_SENDER", "youremail@gmail.com")
     sender_password = os.environ.get("EMAIL_PASSWORD", "yourpass")
-    receiver_emails = ["your1@hotmail.com", "your2@gmail.com"]
+    receiver_emails = os.environ.get("EMAIL_RECIPIENT", "your1@hotmail.com,your2@gmail.com").split(",")
     smtp_server = os.environ.get("SMTP_SERVER", "youremail@gmail.com")
     smtp_port = os.environ.get("SMTP_PORT", "456")
     
