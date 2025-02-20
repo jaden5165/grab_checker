@@ -47,6 +47,10 @@ jobs:
         run: |
           python grab_claude.py
 
+      - name: Get current date
+        id: date
+        run: echo "date=$(date +%Y-%m-%d)" >> $GITHUB_OUTPUT
+
       - name: Send email with results
         uses: dawidd6/action-send-mail@v3
         with:
@@ -54,7 +58,7 @@ jobs:
           server_port: ${{ secrets.SMTP_PORT }}
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
-          subject: Grab Outlet Status Report - $(date +%Y-%m-%d)
+          subject: Grab Outlet Status Report - ${{ steps.date.outputs.date }}
           body: |
             Daily Grab outlet status report is attached.
 
