@@ -31,8 +31,8 @@ jobs:
           echo "Chrome major version: $CHROME_VERSION"
           CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION")
           if echo "$CHROMEDRIVER_VERSION" | grep -q "<Error>"; then
-            echo "Chromedriver for Chrome $CHROME_VERSION not available. Falling back to latest release."
-            CHROMEDRIVER_VERSION=$(curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE")
+            echo "Chromedriver for Chrome $CHROME_VERSION is not available. Exiting."
+            exit 1
           fi
           echo "Chromedriver version: $CHROMEDRIVER_VERSION"
           wget -q "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip"
