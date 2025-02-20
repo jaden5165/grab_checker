@@ -114,11 +114,11 @@ def check_outlet_status(outlet_name, username, password, return_list):
             if outlet_path:
                 try:
                     # Scroll to make outlet visible
-                    element = WebDriverWait(driver, 8).until(EC.presence_of_element_located((By.XPATH, outlet_path)))
+                    element = WebDriverWait(driver, 15).until(EC.presence_of_element_located((By.XPATH, outlet_path)))
                     driver.execute_script("arguments[0].scrollIntoView();", element)
                     
                     # Click the outlet
-                    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, outlet_path))).click()
+                    WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, outlet_path))).click()
                     logger.info(f"Successfully clicked outlet for {outlet_name}")
                 except Exception as e:
                     logger.warning(f"Could not click outlet for {outlet_name}: {e}")
