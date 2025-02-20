@@ -52,7 +52,7 @@ jobs:
 
       - name: Create outlets.csv from secrets
         run: |
-          echo '${{ secrets.OUTLETS_CSV_CONTENT }}' > outlets.csv
+          echo -e "${{ secrets.OUTLETS_CSV_CONTENT }}" > outlets.csv
 
       - name: Update Chromedriver path in script
         run: |
