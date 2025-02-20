@@ -118,7 +118,7 @@ def check_outlet_status(outlet_name, username, password, return_list):
                     driver.execute_script("arguments[0].scrollIntoView();", element)
                     
                     # Click the outlet
-                    WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, outlet_path))).click()
+                    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, outlet_path))).click()
                     logger.info(f"Successfully clicked outlet for {outlet_name}")
                 except Exception as e:
                     logger.warning(f"Could not click outlet for {outlet_name}: {e}")
