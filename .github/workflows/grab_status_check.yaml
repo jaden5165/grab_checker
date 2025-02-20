@@ -2,7 +2,12 @@ name: Daily Grab Status Checker
 
 on:
   schedule:
-    - cron: '0 3 * * *'  # Runs at midnight UTC daily (adjust to your timezone)
+    - cron: '0 4 * * *'   # 12:00 PM MYT
+    - cron: '0 6 * * *'   # 2:00 PM MYT
+    - cron: '0 8 * * *'   # 4:00 PM MYT
+    - cron: '0 10 * * *'  # 6:00 PM MYT
+    - cron: '0 12 * * *'  # 8:00 PM MYT
+    - cron: '0 14 * * *'  # 10:00 PM MYT
   workflow_dispatch:      # Allows manual triggering from GitHub interface
 
 jobs:
@@ -31,7 +36,10 @@ jobs:
 
       - name: Create outlets.csv from secrets
         run: |
-          echo -e "${{ secrets.OUTLETS_CSV_CONTENT }}" > outlets.csv
+          printf "%b" "${{ secrets.OUTLETS_CSV_CONTENT }}" > outlets.csv
+
+      - name: Debug: Print CSV content
+        run: cat outlets.csv
 
       - name: Update Chromedriver path in script
         run: |
