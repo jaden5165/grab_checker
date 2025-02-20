@@ -239,8 +239,8 @@ def send_status_email(results_df, excel_file_path):
     sender_email = os.environ.get("EMAIL_SENDER", "youremail@gmail.com")
     sender_password = os.environ.get("EMAIL_PASSWORD", "yourpass")
     receiver_emails = ["your1@hotmail.com", "your2@gmail.com"]
-    smtp_server = "smtp.gmail.com"
-    smtp_port = 587
+    smtp_server = os.environ.get("SMTP_SERVER", "youremail@gmail.com")
+    smtp_port = os.environ.get("SMTP_PORT", "456")
     
     # Create email message
     msg = MIMEMultipart()
