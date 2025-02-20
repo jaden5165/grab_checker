@@ -2,7 +2,7 @@ name: Daily Grab Status Checker
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs at midnight UTC daily (adjust to your timezone)
+    - cron: '0 3 * * *'  # Runs at midnight UTC daily (adjust to your timezone)
   workflow_dispatch:      # Allows manual triggering from GitHub interface
 
 jobs:
