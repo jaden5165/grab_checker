@@ -36,7 +36,7 @@ jobs:
 
       - name: Create outlets.csv from secrets
         run: |
-          printf "%b" "${{ secrets.OUTLETS_CSV_CONTENT }}" > outlets.csv
+          printf '%b' "${{ secrets.OUTLETS_CSV_CONTENT }}" > outlets.csv
 
       - name: Debug: Print CSV content
         run: |
