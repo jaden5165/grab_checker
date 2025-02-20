@@ -38,7 +38,7 @@ jobs:
         run: |
           printf '%b' "${{ secrets.OUTLETS_CSV_CONTENT }}" > outlets.csv
 
-      - name: Debug: Print CSV content
+      - name: "Debug: Print CSV content"
         run: |
           cat outlets.csv
 
