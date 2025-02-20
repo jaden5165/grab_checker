@@ -55,6 +55,11 @@ jobs:
       - name: Run Grab status check
         run: |
           python grab_claude.py
+        env:
+        # These can help with browser rendering in CI
+        DISPLAY: :99
+        SELENIUM_HEADLESS: true
+        
 
       - name: Get current date
         id: date
