@@ -39,7 +39,8 @@ jobs:
           printf "%b" "${{ secrets.OUTLETS_CSV_CONTENT }}" > outlets.csv
 
       - name: Debug: Print CSV content
-        run: cat outlets.csv
+        run: |
+          cat outlets.csv
 
       - name: Update Chromedriver path in script
         run: |
