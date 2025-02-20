@@ -57,16 +57,16 @@ jobs:
       - name: Update Chromedriver path in script
         run: |
           # Check if the script exists and update the Chromedriver path
-          if [ -f "grabstatuschecking.py" ]; then
-            sed -i 's|"C:/Users/sheng/Desktop/TEST/chromedriver.exe"|"/usr/local/bin/chromedriver"|g' grabstatuschecking.py
+          if [ -f "grab_claude.py" ]; then
+            sed -i 's|"C:/Users/sheng/Desktop/TEST/chromedriver.exe"|"/usr/local/bin/chromedriver"|g' grab_claude.py
           else
-            echo "Error: grabstatuschecking.py not found"
+            echo "Error: grab_claude.py not found"
             exit 1
           fi
 
       - name: Run Grab status check
         run: |
-          python grabstatuschecking.py
+          python grab_claude.py
 
       - name: Send email with results
         uses: dawidd6/action-send-mail@v3
