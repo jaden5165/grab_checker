@@ -28,6 +28,7 @@ wheels/
 # Excel files
 *.xlsx
 *.xls
+*.csv
 
 # Logs
 *.log
